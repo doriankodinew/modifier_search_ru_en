@@ -7,8 +7,10 @@
 
 [![Blender](https://img.shields.io/badge/Blender-4.2%2B-orange?logo=blender&logoColor=white)](https://www.blender.org/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)](#)
+[![Latest release](https://img.shields.io/github/v/release/doriankodinew/modifier_search_ru_en?label=release&color=brightgreen)](https://github.com/doriankodinew/modifier_search_ru_en/releases)
 [![Extensions Platform](https://img.shields.io/badge/format-Blender%20Extension-9cf)](#)
+
+### [⬇️ Скачать modifier_search_ru_en-1.0.0.zip](https://github.com/doriankodinew/modifier_search_ru_en/releases/download/ModifierSearchBlender/modifier_search_ru_en-1.0.0.zip)
 
 </div>
 
@@ -26,11 +28,11 @@
 
 <div align="center">
 
-<img width="784" height="497" alt="info" src="https://github.com/user-attachments/assets/7608a058-9b78-4706-8927-dd13e29f064d" />
-
+*(сюда можно вставить GIF/скриншот поиска в действии)*
 
 </div>
 
+---
 
 ## ✨ Возможности
 
@@ -49,21 +51,28 @@
   ручного добавления, и не падает с трейсбеком при несовместимых сочетаниях —
   вместо этого показывает понятное сообщение.
 
+---
+
 ## 📦 Установка
 
 Это **официальное расширение Blender** (формат Extensions, Blender 4.2+), а не
 классический аддон — устанавливается из `.zip`, распаковывать вручную не нужно.
 
-1. Скачайте `modifier_search_ru_en-1.0.0.zip` из [Releases](../../releases/)
-   или из корня репозитория.
+1. **[Скачайте modifier_search_ru_en-1.0.0.zip](https://github.com/doriankodinew/modifier_search_ru_en/releases/download/ModifierSearchBlender/modifier_search_ru_en-1.0.0.zip)**
+   (или посмотрите все версии на странице [Releases](https://github.com/doriankodinew/modifier_search_ru_en/releases)).
 2. `Edit → Preferences → Get Extensions` → значок `⌄` в правом верхнем углу →
    **Install from Disk…**
 3. Выберите скачанный `.zip`.
 4. Готово — аддон включится автоматически.
 
+> ⚠️ Не используйте кнопку **Code → Download ZIP** на главной странице репозитория —
+> она упаковывает файлы в лишнюю вложенную папку, и Blender такой архив не примет.
+> Только ссылка выше или файлы со страницы Releases.
+
 > Если у вас Blender младше 4.2 (классическая система аддонов), тот же `.zip`
 > подойдёт и для `Preferences → Add-ons → Install`.
 
+---
 
 ## 🚀 Использование
 
@@ -76,7 +85,26 @@
 Начните вводить название — `bevel`, `фаска`, `subsurf`, `подразделение` — и выберите
 нужный пункт. Модификатор добавится к активному объекту сразу же.
 
+---
 
+## 🛠 Как это устроено
+
+Никакого статического словаря модификаторов внутри нет. При каждом открытии поиска
+аддон:
+
+1. Забирает актуальный список типов модификаторов напрямую из
+   `bpy.ops.object.modifier_add.get_rna_type()`.
+2. Для каждого получает официальный перевод на текущий язык интерфейса через
+   `bpy.app.translations.pgettext_iface()` — ту же функцию, которой пользуется сам
+   Blender для отрисовки меню.
+3. Фильтрует результат по типу активного объекта (например, скрывает модификаторы
+   Grease Pencil для обычного меша) и по списку известных служебных
+   идентификаторов, которые не предназначены для ручного добавления.
+
+Поэтому список гарантированно **не устареет** и не разойдётся с тем, что реально
+доступно именно в вашей версии Blender.
+
+---
 
 ## ⚠️ Известные ограничения
 
@@ -89,8 +117,17 @@
   возможна ошибка добавления. Она обрабатывается аккуратно (без трейсбека), но сам
   пункт из списка пока не скрывается.
 
+---
 
 ## 📄 Лицензия
 
 Распространяется под [GPL‑3.0‑or‑later](https://www.gnu.org/licenses/gpl-3.0) —
 как и положено для аддонов, работающих поверх `bpy`.
+
+---
+
+## 🤝 Обратная связь
+
+Нашли модификатор, который ведёт себя странно, или объект, для которого поиск
+предлагает не те пункты? Откройте [Issue](../../issues) — укажите версию Blender,
+тип объекта и текст ошибки из консоли (если есть). Это сильно ускоряет починку.
