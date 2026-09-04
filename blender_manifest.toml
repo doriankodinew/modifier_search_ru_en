@@ -1,0 +1,19 @@
+schema_version = "1.0.0"
+
+id = "modifier_search_ru_en"
+version = "1.0.0"
+name = "Modifier Search RU/EN"
+tagline = "Поиск и добавление модификаторов по английскому или русскому названию"
+maintainer = "Your Name <you@example.com>"
+type = "add-on"
+
+tags = ["Interface", "Object", "Modeling"]
+
+blender_version_min = "4.2.0"
+
+license = [
+  "SPDX:GPL-3.0-or-later",
+]
+
+# Аддон не работает с сетью, файловой системой и буфером обмена —
+# специальные разрешения не требуются, поэтому секция [permissions] отсутствует.
