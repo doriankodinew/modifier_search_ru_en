@@ -54,7 +54,7 @@
 Это **официальное расширение Blender** (формат Extensions, Blender 4.2+), а не
 классический аддон — устанавливается из `.zip`, распаковывать вручную не нужно.
 
-1. Скачайте `modifier_search_ru_en-1.0.0.zip` из [Releases](../../releases/modifier_search_ru_en-1.0.0.zip)
+1. Скачайте `modifier_search_ru_en-1.0.0.zip` из [Releases](../../releases/)
    или из корня репозитория.
 2. `Edit → Preferences → Get Extensions` → значок `⌄` в правом верхнем углу →
    **Install from Disk…**
