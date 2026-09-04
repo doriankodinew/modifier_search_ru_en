@@ -28,7 +28,8 @@
 
 <div align="center">
 
-*(сюда можно вставить GIF/скриншот поиска в действии)*
+<img width="784" height="497" alt="info" src="https://github.com/user-attachments/assets/2dfd8900-e091-4b17-ae1f-0621f6884433" />
+
 
 </div>
 
