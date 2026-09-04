@@ -26,7 +26,8 @@
 
 <div align="center">
 
-*(сюда можно вставить GIF/скриншот поиска в действии)*
+<img width="784" height="497" alt="info" src="https://github.com/user-attachments/assets/7608a058-9b78-4706-8927-dd13e29f064d" />
+
 
 </div>
 
